@@ -23,6 +23,23 @@ def init_db():
 init_db()
 
 
+@app.route("/")
+def home():
+    return jsonify({
+        "mensagem": "Bem-vindos à API de livros Vai na Web!",
+        "endpoints": [
+            {
+                "endpoint": "/doar (POST)",
+                "descrição": "Cadastra um novo livro"
+            },
+            {
+                "endpoint": "/livros (GET)",
+                "descrição": "Lista todos os livros cadastrados"
+            }
+        ]
+    })
+
+
 @app.route("/doar", methods=["POST"])
 def doar():
     dados = request.get_json()
